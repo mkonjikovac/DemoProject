@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: default
 
 steps:
 - script: echo Hello, world!
@@ -15,5 +15,6 @@ steps:
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
+    ping 127.0.0.1 -n 6 > nul
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
