@@ -10,7 +10,7 @@ pool:
   name: Azure Pipelines
 
 steps:
-- script: echo Hello, world!
+- script: echo Hello, $(NAME)!
   displayName: 'Run a one-line script'
 
 - script: |
