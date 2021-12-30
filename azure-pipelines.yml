@@ -4,7 +4,21 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+  batch: true
+  branches:
+    include:
+    - main
+    - ado*
+    exclude:
+      - ado-azure-pipelines
+  paths:
+    exclude:
+    - metadata
+  tags:
+    include:
+    - v1.*
+    exclude:
+    - v1.0
 
 pool:
   name: Azure Pipelines
