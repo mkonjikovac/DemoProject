@@ -22,7 +22,7 @@ trigger:
 
 pool:
   name: default
-  demands: Agent.Version -equals 2.199.0
+  demands: Agent.Version -equals 2.198.2
   
 jobs:
   - job: A
