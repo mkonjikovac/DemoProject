@@ -24,6 +24,7 @@ pool:
   name: default
   demands: Agent.Version -equals 2.199.0
 
+condition: True
 steps:
 - script: echo Hello, $(NAME)!
   displayName: 'Run a one-line script'
