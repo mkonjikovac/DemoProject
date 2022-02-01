@@ -23,23 +23,25 @@ trigger:
 pool:
   name: default
   demands: Agent.Version -equals 2.199.0
+  
+jobs:
+  - job: A
+    condition: True
+    steps:
+    - script: echo Hello, $(NAME)!
+      displayName: 'Run a one-line script'
 
-condition: True
-steps:
-- script: echo Hello, $(NAME)!
-  displayName: 'Run a one-line script'
+    - script: |
+        echo Add other tasks to build, test, and deploy your project.
+        echo ping 127.0.0.1 -n 10
+        echo See https://aka.ms/yaml
+      displayName: 'Run a multi-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo ping 127.0.0.1 -n 10
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
-- task: Bash@3
-  condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your commands here
-      
-      echo 'BASH Task says: Hello world'
+    - task: Bash@3
+      condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Write your commands here
+          
+          echo 'BASH Task says: Hello world'
