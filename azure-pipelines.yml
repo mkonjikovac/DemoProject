@@ -21,7 +21,7 @@ trigger:
     - v1.0
 
 pool:
-  name: Azure Pipelines
+  name: default
 
 steps:
 - script: echo Hello, $(NAME)!
