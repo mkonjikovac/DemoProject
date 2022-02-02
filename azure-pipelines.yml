@@ -26,7 +26,6 @@ pool:
   
 jobs:
   - job: A
-    condition: always()
     steps:
     - script: echo Hello, $(NAME)!
       displayName: 'Run a one-line script'
